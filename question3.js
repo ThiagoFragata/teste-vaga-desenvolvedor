@@ -2,12 +2,12 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var fs = require("fs");
 function calculateRevenue(data) {
-    var daysWithRevenue = data.filter(function (r) { return r.value > 0; });
-    var lowestRevenue = Math.min.apply(Math, daysWithRevenue.map(function (r) { return r.value; }));
-    var highestRevenue = Math.max.apply(Math, daysWithRevenue.map(function (r) { return r.value; }));
-    var totalRevenue = daysWithRevenue.reduce(function (acc, cur) { return acc + cur.value; }, 0);
+    var daysWithRevenue = data.filter(function (r) { return r.valor > 0; });
+    var lowestRevenue = Math.min.apply(Math, daysWithRevenue.map(function (r) { return r.valor; }));
+    var highestRevenue = Math.max.apply(Math, daysWithRevenue.map(function (r) { return r.valor; }));
+    var totalRevenue = daysWithRevenue.reduce(function (acc, cur) { return acc + cur.valor; }, 0);
     var monthlyAverage = totalRevenue / daysWithRevenue.length;
-    var daysAboveAverage = data.filter(function (r) { return r.value > monthlyAverage; }).length;
+    var daysAboveAverage = data.filter(function (r) { return r.valor > monthlyAverage; }).length;
     return {
         lowestRevenue: lowestRevenue,
         highestRevenue: highestRevenue,
@@ -18,7 +18,7 @@ function calculateRevenue(data) {
 function loadRevenueData() {
     var jsonData = fs.readFileSync('invoicing.json', 'utf-8');
     var data = JSON.parse(jsonData);
-    return data.revenue;
+    return data;
 }
 function formatCurrency(value) {
     return new Intl.NumberFormat('pt-BR', {

@@ -2,21 +2,21 @@
 import * as fs from 'fs';
 
 interface RevenueDay {
-    day: number;
-    value: number;
+    dia: number;
+    valor: number;
 }
 
 
 function calculateRevenue(data: RevenueDay[]) {
-    const daysWithRevenue = data.filter((r) => r.value > 0);
+    const daysWithRevenue = data.filter((r) => r.valor > 0);
     
-    const lowestRevenue = Math.min(...daysWithRevenue.map((r) => r.value));
-    const highestRevenue = Math.max(...daysWithRevenue.map((r) => r.value));
+    const lowestRevenue = Math.min(...daysWithRevenue.map((r) => r.valor));
+    const highestRevenue = Math.max(...daysWithRevenue.map((r) => r.valor));
     
-    const totalRevenue = daysWithRevenue.reduce((acc, cur) => acc + cur.value, 0);
+    const totalRevenue = daysWithRevenue.reduce((acc, cur) => acc + cur.valor, 0);
     const monthlyAverage = totalRevenue / daysWithRevenue.length;
 
-    const daysAboveAverage = data.filter((r) => r.value > monthlyAverage).length;
+    const daysAboveAverage = data.filter((r) => r.valor > monthlyAverage).length;
 
     return {
         lowestRevenue,
@@ -30,7 +30,7 @@ function calculateRevenue(data: RevenueDay[]) {
 function loadRevenueData(): RevenueDay[] {
     const jsonData = fs.readFileSync('invoicing.json', 'utf-8');
     const data = JSON.parse(jsonData);
-    return data.revenue;
+    return data;
 }
 
 function formatCurrency(value: number): string {
