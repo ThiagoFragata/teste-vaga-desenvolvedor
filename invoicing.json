@@ -1,0 +1,44 @@
+{
+  "revenue": [
+    {
+      "day": 1,
+      "value": 0
+    },
+    {
+      "day": 2,
+      "value": 200
+    },
+    {
+      "day": 3,
+      "value": 300
+    },
+    {
+      "day": 4,
+      "value": 0
+    },
+    {
+      "day": 5,
+      "value": 500
+    },
+    {
+      "day": 6,
+      "value": 700
+    },
+    {
+      "day": 7,
+      "value": 0
+    },
+    {
+      "day": 8,
+      "value": 150
+    },
+    {
+      "day": 9,
+      "value": 0
+    },
+    {
+      "day": 10,
+      "value": 100
+    }
+  ]
+}
