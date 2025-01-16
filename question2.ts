@@ -1,3 +1,5 @@
+import * as readline from 'readline';
+
 function isFibonacci(num: number): boolean {
     let a = 0; 
     let b = 1; 
@@ -12,11 +14,20 @@ function isFibonacci(num: number): boolean {
     return false; 
 }
 
-const numberToCheck = 21; // Para não precisar instalar um pacote, optei por definir no código o número
-const result = isFibonacci(numberToCheck);
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
 
-console.log(
-    result
-        ? `${numberToCheck} pertence à sequência de Fibonacci.`
-        : `${numberToCheck} não pertence à sequência de Fibonacci.`
-);
+rl.question('Digite um número para verificar se pertence à sequência de Fibonacci: ', (input: string) => {
+    const numberToCheck = parseInt(input); 
+    const result = isFibonacci(numberToCheck);
+
+    console.log(
+        result
+            ? `${numberToCheck} pertence à sequência de Fibonacci.`
+            : `${numberToCheck} não pertence à sequência de Fibonacci.`
+    );
+
+    rl.close();
+});
